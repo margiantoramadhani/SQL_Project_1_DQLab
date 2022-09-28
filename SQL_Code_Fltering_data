@@ -1,0 +1,254 @@
+1. Menampilkan  daftar produk yang memiliki harga antara 50.000 and 150.000
+
+select 
+  no_urut, 
+  kode_produk, 
+  nama_produk, 
+  harga 
+from 
+  ms_produk
+where 
+  harga between 50000 and 150000;
+
++---------+-------------+------------------------------------+--------+
+| no_urut | kode_produk | nama_produk                        | harga  |
++---------+-------------+------------------------------------+--------+
+|       1 | prod-01     | Kotak Pensil DQLab                 |  60500 |
+|       2 | prod-02     | Flashdisk DQLab 64 GB              |  55000 |
+|       3 | prod-03     | Gift Voucher DQLab 100rb           | 100000 |
+|       6 | prod-06     | Pulpen Multifunction + Laser DQLab |  92500 |
+|       9 | prod-09     | Buku Planner Agenda DQLab          |  92000 |
+|      10 | prod-10     | Sticky Notes DQLab 500 sheets      |  55000 |
++---------+-------------+------------------------------------+--------+ 
+
+2. Tampilkan semua produk yang mengandung kata Flashdisk.
+
+select 
+  no_urut, 
+  kode_produk, 
+  nama_produk, 
+  harga 
+from 
+  ms_produk 
+where 
+  nama_produk like '%flashdisk%';
+
++---------+-------------+-----------------------+-------+
+| no_urut | kode_produk | nama_produk           | harga |
++---------+-------------+-----------------------+-------+
+|       2 | prod-02     | Flashdisk DQLab 64 GB | 55000 |
+|       4 | prod-04     | Flashdisk DQLab 32 GB | 40000 |
++---------+-------------+-----------------------+-------+ 
+
+3. Tampilkan hanya nama-nama pelanggan yang hanya memiliki gelar-gelar berikut: S.H, Ir. dan Drs.
+
+select 
+  no_urut, 
+  kode_pelanggan, 
+  nama_pelanggan, 
+  alamat 
+from 
+  ms_pelanggan 
+where 
+  nama_pelanggan like '%.%';
+
++---------+----------------+---------------------+-----------------------------------------+
+| no_urut | kode_pelanggan | nama_pelanggan      | alamat                                  |
++---------+----------------+---------------------+-----------------------------------------+
+|       1 | cust0001       | Eva Novianti, S.H.  | Vila Sempilan, No. 67                   |
+|       9 | cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
+|      10 | cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
++---------+----------------+---------------------+-----------------------------------------+
+
+4. Tampilkan nama-nama pelanggan dan urutkan hasilnya berdasarkan kolom nama_pelanggan dari yang terkecil ke yang terbesar (A ke Z).
+
+select 
+  nama_pelanggan 
+from 
+  ms_pelanggan 
+order by 
+  nama_pelanggan asc;
+
++---------------------+
+| nama_pelanggan      |
++---------------------+
+| Agus Cahyono        |
+| Djoko Wardoyo, Drs. |
+| Eva Novianti, S.H.  |
+| Heidi Goh           |
+| Ir. Ita Nugraha     |
+| Irwan Setianto      |
+| Jokolono Sukarman   |
+| Maria Sirait        |
+| Tommy Sinaga        |
+| Unang Handoko       |
++---------------------+ 
+
+5. Tampilkan nama-nama pelanggan dan urutkan hasilnya berdasarkan kolom nama_pelanggan dari yang terkecil ke yang terbesar (A ke Z), 
+namun gelar tidak boleh menjadi bagian dari urutan. Contoh: Ir. Agus Nugraha harus berada di atas Heidi Goh.
+
+select 
+  nama_pelanggan 
+from 
+  ms_pelanggan 
+order by
+  case when left(nama_pelanggan,3) = 'ir.'
+  then substring(nama_pelanggan,5,300)
+  else nama_pelanggan
+end
+asc;
+
++---------------------+
+| nama_pelanggan      |
++---------------------+
+| Agus Cahyono        |
+| Djoko Wardoyo, Drs. |
+| Eva Novianti, S.H.  |
+| Heidi Goh           |
+| Irwan Setianto      |
+| Ir. Ita Nugraha     |
+| Jokolono Sukarman   |
+| Maria Sirait        |
+| Tommy Sinaga        |
+| Unang Handoko       |
++---------------------+ 
+
+6. Tampilkan nama pelanggan yang memiliki nama paling panjang. Jika ada lebih dari 1 orang yang memiliki panjang nama yang sama, tampilkan semuanya.
+
+select 
+  nama_pelanggan 
+from 
+  ms_pelanggan 
+where 
+  length(nama_pelanggan) in (select max(length (nama_pelanggan)) from ms_pelanggan);
+
++---------------------+
+| nama_pelanggan      |
++---------------------+
+| Djoko Wardoyo, Drs. |
++---------------------+
+
+7. Tampilkan nama orang yang memiliki nama paling panjang (pada row atas), dan nama orang paling pendek (pada row setelahnya). 
+Gelar menjadi bagian dari nama. Jika ada lebih dari satu nama yang paling panjang atau paling pendek, harus ditampilkan semuanya.
+
+select 
+  nama_pelanggan 
+from 
+  ms_pelanggan
+where 
+  length(nama_pelanggan) in (select max(length(nama_pelanggan))from ms_pelanggan)
+  or
+  length(nama_pelanggan) in (select min(length(nama_pelanggan))from ms_pelanggan)
+order by 
+  length(nama_pelanggan) desc;
+
++---------------------+
+| nama_pelanggan      |
++---------------------+
+| Djoko Wardoyo, Drs. |
+| Heidi Goh           |
++---------------------+
+
+8. Tampilkan produk yang paling banyak terjual dari segi kuantitas. Jika ada lebih dari 1 produk dengan nilai yang sama, tampilkan semua produk tersebut.
+
+select 
+  ms_produk.kode_produk, 
+  ms_produk.nama_produk, 
+  sum(tr_penjualan_detail.qty) as total_qty
+from
+  ms_produk
+join 
+  tr_penjualan_detail
+  on 
+  ms_produk.kode_produk=tr_penjualan_detail.kode_produk
+group by
+	ms_produk.kode_produk,
+	ms_produk.nama_produk
+having
+	total_qty=7;
+
++-------------+-----------------------+-----------+
+| kode_produk | nama_produk           | total_qty |
++-------------+-----------------------+-----------+
+| prod-04     | Flashdisk DQLab 32 GB |         7 |
+| prod-08     | Gantungan Kunci DQLab |         7 |
++-------------+-----------------------+-----------+
+
+9. Siapa saja pelanggan yang paling banyak menghabiskan uangnya untuk belanja? 
+Jika ada lebih dari 1 pelanggan dengan nilai yang sama, tampilkan semua pelanggan tersebut.
+
+SELECT
+  a.kode_pelanggan,
+  a.nama_pelanggan,
+  sum(c.harga_satuan*c.qty) as total_harga
+FROM
+  ms_pelanggan a
+JOIN 
+  tr_penjualan b ON a.kode_pelanggan=b.kode_pelanggan
+JOIN 
+  tr_penjualan_detail c ON b.kode_transaksi=c.kode_transaksi
+GROUP BY 
+  a.kode_pelanggan,
+  a.nama_pelanggan
+ORDER BY 
+  total_harga desc limit 1;
+  
++----------------+----------------+-------------+
+| kode_pelanggan | nama_pelanggan | total_harga |
++----------------+----------------+-------------+
+| cust0007       | Agus Cahyono   |      700000 |
++----------------+----------------+-------------+ 
+
+10. Tampilkan daftar pelanggan yang belum pernah melakukan transaksi.
+
+SELECT
+  a.kode_pelanggan,
+  a.nama_pelanggan,
+  a.alamat
+FROM 
+  ms_pelanggan a
+WHERE 
+  a.kode_pelanggan NOT IN (SELECT kode_pelanggan FROM tr_penjualan)
+
++----------------+---------------------+-----------------------------------------+
+| kode_pelanggan | nama_pelanggan      | alamat                                  |
++----------------+---------------------+-----------------------------------------+
+| cust0002       | Heidi Goh           | Ruko Sawit Permai 72 No. 1              |
+| cust0005       | Tommy Sinaga        | Avatar Village, Blok C8 No. 888         |
+| cust0006       | Irwan Setianto      | Rukan Gunung Seribu, Blok O1 - No. 1    |
+| cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
+| cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
++----------------+---------------------+-----------------------------------------+ 
+
+11. Tampilkan transaksi-transaksi yang memiliki jumlah item produk lebih dari 1 jenis produk. 
+Dengan lain kalimat, tampilkan transaksi-transaksi yang memiliki jumlah baris data pada table tr_penjualan_detail lebih dari satu.
+
+SELECT
+  a.kode_transaksi,
+  a.kode_pelanggan,
+  b.nama_pelanggan,
+  a.tanggal_transaksi,
+  count(c.kode_produk) as jumlah_detail
+FROM
+  tr_penjualan a
+JOIN 
+  ms_pelanggan b ON a.kode_pelanggan=b.kode_pelanggan 
+JOIN 
+  tr_penjualan_detail c ON a.kode_transaksi=c.kode_transaksi
+GROUP BY 
+  a.kode_transaksi,
+  a.kode_pelanggan,
+  b.nama_pelanggan,
+  a.tanggal_transaksi
+HAVING 
+  count(c.kode_produk)>1;
+
++----------------+----------------+--------------------+---------------------+---------------+
+| kode_transaksi | kode_pelanggan | nama_pelanggan     | tanggal_transaksi   | jumlah_detail |
++----------------+----------------+--------------------+---------------------+---------------+
+| tr-0001        | cust0007       | Agus Cahyono       | 2019-06-07 10:09:46 |             8 |
+| tr-0002        | cust0001       | Eva Novianti, S.H. | 2019-06-07 13:05:12 |             3 |
+| tr-0004        | cust0004       | Jokolono Sukarman  | 2019-06-08 22:09:46 |             2 |
+| tr-0005        | cust0003       | Unang Handoko      | 2019-06-09 22:09:46 |             3 |
+| tr-0006        | cust0008       | Maria Sirait       | 2019-06-09 22:09:46 |             2 |
++----------------+----------------+--------------------+---------------------+---------------+ 
