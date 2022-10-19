@@ -6,7 +6,7 @@ Source : https://academy.dqlab.id/main/package/project/99?pf=0
 #### Dataset project
 
 <details>
-<summary markdown="span">ms_pelanggan :</summary>
+<summary markdown="span">ms_pelanggan</summary>
 	
 | no_urut | kode_cabang | kode_pelanggan | nama_pelanggan      | alamat                                      |
 |---------|-------------|----------------|---------------------|---------------------------------------------|
@@ -24,7 +24,7 @@ Source : https://academy.dqlab.id/main/package/project/99?pf=0
 </details>
 
 <details>
-<summary markdown="span">ms_produk :</summary>
+<summary markdown="span">ms_produk</summary>
 	
 | no_urut | kode_produk | nama_produk                        | harga  |
 |---------|-------------|------------------------------------|--------|
@@ -42,7 +42,7 @@ Source : https://academy.dqlab.id/main/package/project/99?pf=0
 </details>
 
 <details>
-<summary markdown="span">tr_penjualan :</summary>
+<summary markdown="span">tr_penjualan</summary>
 	
 | kode_transaksi | tanggal_transaksi   | kode_cabang | kode_pelanggan | no_urut | kode_prod | harga  |
 |----------------|---------------------|-------------|----------------|---------|-----------|--------|
@@ -65,7 +65,7 @@ Source : https://academy.dqlab.id/main/package/project/99?pf=0
 </details>
 
 <details>
-<summary markdown="span">tr_penjualan_detail :</summary>
+<summary markdown="span">tr_penjualan_detail</summary>
 	
 | kode_transaksi | kode_produk | qty  | harga_satuan |
 |----------------|-------------|------|--------------|
