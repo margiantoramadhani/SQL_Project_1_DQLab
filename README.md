@@ -92,6 +92,7 @@ WHERE
 
 <details>
 <summary markdown="span">Output :</summary>
+  
 | no_urut | kode_produk | nama_produk                        | harga  |
 |---------|-------------|------------------------------------|--------|
 |       1 | prod-01     | Kotak Pensil DQLab                 |  60500 |
@@ -100,6 +101,7 @@ WHERE
 |       6 | prod-06     | Pulpen Multifunction + Laser DQLab |  92500 |
 |       9 | prod-09     | Buku Planner Agenda DQLab          |  92000 |
 |      10 | prod-10     | Sticky Notes DQLab 500 sheets      |  55000 |
+
 </details>
 
 ----
@@ -120,12 +122,15 @@ FROM
 WHERE 
   nama_produk LIKE '%flashdisk%';
 ```
+
 <details>
 <summary markdown="span">Output :</summary>
+  
 | no_urut | kode_produk | nama_produk           | harga |
 |---------|-------------|-----------------------|-------|
 |       2 | prod-02     | Flashdisk DQLab 64 GB | 55000 |
 |       4 | prod-04     | Flashdisk DQLab 32 GB | 40000 |
+  
 <details>
 
 ----
