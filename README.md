@@ -76,8 +76,8 @@
 
 #### Produk DQLab Mart
 Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara 50.000 and 150.000.</br>
-Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
-Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
+Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
+
 ```sql
 SELECT 
   no_urut, 
@@ -108,8 +108,7 @@ WHERE
 
 #### Thumb drive di DQLab Mart
 Tampilkan semua produk yang mengandung kata Flashdisk.</br>
-Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
-Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
+Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 
 ```sql
 SELECT 
@@ -137,8 +136,7 @@ WHERE
 
 #### Pelanggan Bergelar
 Tampilkan hanya nama-nama pelanggan yang hanya memiliki gelar-gelar berikut: S.H, Ir. dan Drs.</br>
-Nama kolom yang harus ditampilkan: no_urut, kode_pelanggan, nama_pelanggan, dan alamat.</br>
-Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
+Nama kolom yang harus ditampilkan: no_urut, kode_pelanggan, nama_pelanggan, dan alamat.
 
 ```sql
 SELECT 
@@ -148,7 +146,7 @@ FROM
 WHERE 
   nama_pelanggan like "%S.H." OR
   nama_pelanggan like "Ir.%" OR
-  nama_pelanggan like "%Drs." 
+  nama_pelanggan like "%Drs.";
 ```
 
 <details>
@@ -164,5 +162,38 @@ WHERE
 
 #### Mengurutkan Nama Pelanggan
 Tampilkan nama-nama pelanggan dan urutkan hasilnya berdasarkan kolom nama_pelanggan dari yang terkecil ke yang terbesar (A ke Z).</br>
-Nama kolom yang harus ditampilkan: nama_pelanggan.</br>
-Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
+Nama kolom yang harus ditampilkan: nama_pelanggan.
+
+```sql
+SELECT 
+	nama_pelanggan 
+FROM 
+	ms_pelanggan 
+ORDER BY 
+	nama_pelanggan ASC;
+```
+
+<details>
+<summary markdown="span">Output :</summary>
+
+| nama_pelanggan      |
+|---------------------|
+| Agus Cahyono        |
+| Djoko Wardoyo, Drs. |
+| Eva Novianti, S.H.  |
+| Heidi Goh           |
+| Ir. Ita Nugraha     |
+| Irwan Setianto      |
+| Jokolono Sukarman   |
+| Maria Sirait        |
+| Tommy Sinaga        |
+| Unang Handoko       |
+
+<\details>
+
+----
+
+#### Mengurutkan Nama Pelanggan Tanpa Gelar
+Tampilkan nama-nama pelanggan dan urutkan hasilnya berdasarkan kolom nama_pelanggan dari yang terkecil ke yang terbesar (A ke Z), 
+namun gelar tidak boleh menjadi bagian dari urutan. Contoh: Ir. Agus Nugraha harus berada di atas Heidi Goh.</br>
+Nama kolom yang harus ditampilkan: nama_pelanggan.
