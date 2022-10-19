@@ -81,13 +81,13 @@ Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 ```sql
 SELECT 
 	no_urut, 
- 	kode_produk, 
- 	nama_produk, 
- 	harga 
+	kode_produk, 
+	nama_produk, 
+	harga 
 FROM 
- 	ms_produk
+	ms_produk
 WHERE 
- 	harga BETWEEN 50000 AND 150000;
+	harga BETWEEN 50000 AND 150000;
 ```
 
 <details>
@@ -112,9 +112,9 @@ Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 
 ```sql
 SELECT 
-  no_urut, 
-  kode_produk, 
-  nama_produk, 
+	no_urut, 
+	kode_produk, 
+	nama_produk, 
   harga 
 FROM 
   ms_produk 
@@ -151,11 +151,13 @@ WHERE
 
 <details>
 <summary markdown="span">Output :</summary>
+	
 | no_urut | kode_cabang | kode_pelanggan | nama_pelanggan      | alamat                                  |
 |---------|-------------|----------------|---------------------|-----------------------------------------|
 |       1 | jkt-001     | cust0001       | Eva Novianti, S.H.  | Vila Sempilan, No. 67                   |
 |       9 | jkt-002     | cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
 |      10 | bdg-001     | cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
+	
 </details>
   
 ----
