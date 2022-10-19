@@ -115,11 +115,11 @@ SELECT
 	no_urut, 
 	kode_produk, 
 	nama_produk, 
-  harga 
+	harga 
 FROM 
-  ms_produk 
+	ms_produk 
 WHERE 
-  nama_produk LIKE '%flashdisk%';
+	nama_produk LIKE '%flashdisk%';
 ```
 
 <details>
@@ -142,11 +142,11 @@ Nama kolom yang harus ditampilkan: no_urut, kode_pelanggan, nama_pelanggan, dan 
 SELECT 
 	* 
 FROM 
- 	ms_pelanggan 
+	ms_pelanggan 
 WHERE 
-  nama_pelanggan like "%S.H." OR
-  nama_pelanggan like "Ir.%" OR
-  nama_pelanggan like "%Drs.";
+	nama_pelanggan like "%S.H." OR
+	nama_pelanggan like "Ir.%" OR
+	nama_pelanggan like "%Drs.";
 ```
 
 <details>
@@ -297,7 +297,7 @@ Nama kolom yang harus ditampilkan: kode_produk, nama_produk,total_qty.
 ```sql
 SELECT
 	ms_produk.kode_produk,
-  ms_produk.nama_produk,
+	ms_produk.nama_produk,
 	SUM(tr_penjualan_detail.qty) AS total_qty
 FROM
 	ms_produk
