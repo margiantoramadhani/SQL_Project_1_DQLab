@@ -80,8 +80,8 @@ Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 
 ```sql
 SELECT 
-  	no_urut, 
-  	kode_produk, 
+	no_urut, 
+ 	kode_produk, 
  	nama_produk, 
  	harga 
 FROM 
@@ -112,14 +112,14 @@ Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 
 ```sql
 SELECT 
-  	no_urut, 
-  	kode_produk, 
-  	nama_produk, 
-  	harga 
+  no_urut, 
+  kode_produk, 
+  nama_produk, 
+  harga 
 FROM 
-  	ms_produk 
+  ms_produk 
 WHERE 
-  	nama_produk LIKE '%flashdisk%';
+  nama_produk LIKE '%flashdisk%';
 ```
 
 <details>
@@ -140,13 +140,13 @@ Nama kolom yang harus ditampilkan: no_urut, kode_pelanggan, nama_pelanggan, dan 
 
 ```sql
 SELECT 
-  	* 
+	* 
 FROM 
-  	ms_pelanggan 
+ 	ms_pelanggan 
 WHERE 
-  	nama_pelanggan like "%S.H." OR
-  	nama_pelanggan like "Ir.%" OR
-  	nama_pelanggan like "%Drs.";
+  nama_pelanggan like "%S.H." OR
+  nama_pelanggan like "Ir.%" OR
+  nama_pelanggan like "%Drs.";
 ```
 
 <details>
