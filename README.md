@@ -79,15 +79,15 @@ Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara
 Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
 Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
 ```plantuml
-select 
+SELECT 
   no_urut, 
   kode_produk, 
   nama_produk, 
   harga 
-from 
+FROM 
   ms_produk
-where 
-  harga between 50000 and 150000;
+WHERE 
+  harga BETWEEN 50000 AND 150000;
 ```
 
 <details>
@@ -110,3 +110,57 @@ where
 Tampilkan semua produk yang mengandung kata Flashdisk.</br>
 Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
 Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
+
+```plantuml
+SELECT 
+  no_urut, 
+  kode_produk, 
+  nama_produk, 
+  harga 
+FROM 
+  ms_produk 
+WHERE 
+  nama_produk LIKE '%flashdisk%';
+ ```
+<details>
+<summary markdown="span">Output :</summary>
+
+| no_urut | kode_produk | nama_produk           | harga |
+|---------|-------------|-----------------------|-------|
+|       2 | prod-02     | Flashdisk DQLab 64 GB | 55000 |
+|       4 | prod-04     | Flashdisk DQLab 32 GB | 40000 |
+
+<details>
+  
+----
+
+#### Pelanggan Bergelar
+Tampilkan hanya nama-nama pelanggan yang hanya memiliki gelar-gelar berikut: S.H, Ir. dan Drs.</br>
+Nama kolom yang harus ditampilkan: no_urut, kode_pelanggan, nama_pelanggan, dan alamat.</br>
+Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
+
+```plantuml
+SELECT 
+  * 
+FROM 
+  ms_pelanggan 
+WHERE 
+  nama_pelanggan like "%S.H." OR
+  nama_pelanggan like "Ir.%" OR
+  nama_pelanggan like "%Drs." 
+```
+
+<details>
+<summary markdown="span">Output :</summary>
+
+| no_urut | kode_cabang | kode_pelanggan | nama_pelanggan      | alamat                                  |
+|---------|-------------|----------------|---------------------|-----------------------------------------|
+|       1 | jkt-001     | cust0001       | Eva Novianti, S.H.  | Vila Sempilan, No. 67                   |
+|       9 | jkt-002     | cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
+|      10 | bdg-001     | cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
+
+<details>
+  
+----
+
+#### 
