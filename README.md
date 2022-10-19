@@ -437,8 +437,3 @@ HAVING
 | tr-0006        | cust0008       | Maria Sirait       | 2019-06-09 22:09:46 |             2 |
 
 </details>
-
-
-
-
-
