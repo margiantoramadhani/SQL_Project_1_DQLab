@@ -324,16 +324,72 @@ HAVING
 
 ----
 
-####
+#### Pelanggan Paling Tinggi Nilai Belanjanya
+Siapa saja pelanggan yang paling banyak menghabiskan uangnya untuk belanja? 
+Jika ada lebih dari 1 pelanggan dengan nilai yang sama, tampilkan semua pelanggan tersebut.</br>
+Nama kolom yang harus ditampilkan: kode_pelanggan, nama_pelanggan, total_harga.
 
+```sql
+SELECT
+	a.kode_pelanggan,
+	a.nama_pelanggan,
+	sum(c.harga_satuan*c.qty) as total_harga
+FROM
+	ms_pelanggan a
+	JOIN tr_penjualan b ON a.kode_pelanggan=b.kode_pelanggan
+	JOIN tr_penjualan_detail c ON b.kode_transaksi=c.kode_transaksi
+GROUP BY 
+	a.kode_pelanggan,
+	a.nama_pelanggan
+ORDER BY
+	total_harga desc limit 1;
+```
 
+<details>
+<summary markdown="span">Output :</summary>
 
+| kode_pelanggan | nama_pelanggan | total_harga |
+|----------------|----------------|-------------|
+| cust0007       | Agus Cahyono   |      700000 |
 
+</details>
 
+----
 
+#### Pelanggan yang Belum Pernah Berbelanja
+Tampilkan daftar pelanggan yang belum pernah melakukan transaksi.</br>
+Nama kolom yang harus ditampilkan: kode_pelanggan, nama_pelanggan, alamat.
 
+```sql
+SELECT
+	a.kode_pelanggan,
+	a.nama_pelanggan,
+	a.alamat
+FROM 
+	ms_pelanggan a
+WHERE 
+	a.kode_pelanggan NOT IN (SELECT kode_pelanggan FROM tr_penjualan)
+```
 
+<details>
+<summary markdown="span">Output :</summary>
 
+| kode_pelanggan | nama_pelanggan | total_harga |
+|----------------|----------------|-------------|
+| cust0007       | Agus Cahyono   |      700000 |
+
+</details>
+| kode_pelanggan | nama_pelanggan      | alamat                                  |
+|----------------|---------------------|-----------------------------------------|
+| cust0002       | Heidi Goh           | Ruko Sawit Permai 72 No. 1              |
+| cust0005       | Tommy Sinaga        | Avatar Village, Blok C8 No. 888         |
+| cust0006       | Irwan Setianto      | Rukan Gunung Seribu, Blok O1 - No. 1    |
+| cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
+| cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
+
+----
+
+#### Transaksi Belanja dengan Daftar Belanja lebih dari 1
 
 
 
