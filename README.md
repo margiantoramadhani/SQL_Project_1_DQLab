@@ -78,7 +78,7 @@
 Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara 50.000 and 150.000.</br>
 Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
 Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
-```plantuml
+```sql
 SELECT 
   no_urut, 
   kode_produk, 
@@ -111,7 +111,7 @@ Tampilkan semua produk yang mengandung kata Flashdisk.</br>
 Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
 Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
 
-```plantuml
+```sql
 SELECT 
   no_urut, 
   kode_produk, 
@@ -139,7 +139,7 @@ Tampilkan hanya nama-nama pelanggan yang hanya memiliki gelar-gelar berikut: S.H
 Nama kolom yang harus ditampilkan: no_urut, kode_pelanggan, nama_pelanggan, dan alamat.</br>
 Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
 
-```plantuml
+```sql
 SELECT 
   * 
 FROM 
