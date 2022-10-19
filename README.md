@@ -19,17 +19,9 @@ where harga between 50000 and 150000;
 
 <details>
 <summary markdown="span">Output :</summary>
-+---------+-------------+------------------------------------+--------+
-| no_urut | kode_produk | nama_produk                        | harga  |
-+---------+-------------+------------------------------------+--------+
-|       1 | prod-01     | Kotak Pensil DQLab                 |  60500 |
-|       2 | prod-02     | Flashdisk DQLab 64 GB              |  55000 |
-|       3 | prod-03     | Gift Voucher DQLab 100rb           | 100000 |
-|       6 | prod-06     | Pulpen Multifunction + Laser DQLab |  92500 |
-|       9 | prod-09     | Buku Planner Agenda DQLab          |  92000 |
-|      10 | prod-10     | Sticky Notes DQLab 500 sheets      |  55000 |
-+---------+-------------+------------------------------------+--------+ 	
-
+![image](https://user-images.githubusercontent.com/112692717/196576577-b122dc53-5931-4635-bd54-c010d293beaa.png)	
+<details>
+</br>
 ----
 
 
