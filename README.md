@@ -119,7 +119,7 @@ FROM
   ms_produk 
 WHERE 
   nama_produk LIKE '%flashdisk%';
- ```
+```
 <details>
 <summary markdown="span">Output :</summary>
 | no_urut | kode_produk | nama_produk           | harga |
@@ -127,7 +127,7 @@ WHERE
 |       2 | prod-02     | Flashdisk DQLab 64 GB | 55000 |
 |       4 | prod-04     | Flashdisk DQLab 32 GB | 40000 |
 <details>
-  
+
 ----
 
 #### Pelanggan Bergelar
