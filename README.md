@@ -92,7 +92,6 @@ WHERE
 
 <details>
 <summary markdown="span">Output :</summary>
-
 | no_urut | kode_produk | nama_produk                        | harga  |
 |---------|-------------|------------------------------------|--------|
 |       1 | prod-01     | Kotak Pensil DQLab                 |  60500 |
@@ -101,7 +100,6 @@ WHERE
 |       6 | prod-06     | Pulpen Multifunction + Laser DQLab |  92500 |
 |       9 | prod-09     | Buku Planner Agenda DQLab          |  92000 |
 |      10 | prod-10     | Sticky Notes DQLab 500 sheets      |  55000 |
-
 </details>
 
 ----
@@ -124,12 +122,10 @@ WHERE
  ```
 <details>
 <summary markdown="span">Output :</summary>
-
 | no_urut | kode_produk | nama_produk           | harga |
 |---------|-------------|-----------------------|-------|
 |       2 | prod-02     | Flashdisk DQLab 64 GB | 55000 |
 |       4 | prod-04     | Flashdisk DQLab 32 GB | 40000 |
-
 <details>
   
 ----
@@ -152,15 +148,16 @@ WHERE
 
 <details>
 <summary markdown="span">Output :</summary>
-
 | no_urut | kode_cabang | kode_pelanggan | nama_pelanggan      | alamat                                  |
 |---------|-------------|----------------|---------------------|-----------------------------------------|
 |       1 | jkt-001     | cust0001       | Eva Novianti, S.H.  | Vila Sempilan, No. 67                   |
 |       9 | jkt-002     | cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
 |      10 | bdg-001     | cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
-
 <details>
   
 ----
 
 #### Mengurutkan Nama Pelanggan
+Tampilkan nama-nama pelanggan dan urutkan hasilnya berdasarkan kolom nama_pelanggan dari yang terkecil ke yang terbesar (A ke Z).</br>
+Nama kolom yang harus ditampilkan: nama_pelanggan.</br>
+Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
