@@ -75,10 +75,8 @@
 ----
 
 #### Produk DQLab Mart
-Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara 50.000 and 150.000.
-</br>
-Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
-</br>
+Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara 50.000 and 150.000.</br>
+Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
 Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
 ```plantuml
 select 
@@ -108,4 +106,7 @@ where
 
 ----
 
-#### Produk DQLab Mart
+#### Thumb drive di DQLab Mart
+Tampilkan semua produk yang mengandung kata Flashdisk.</br>
+Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.</br>
+Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
