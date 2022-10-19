@@ -1,27 +1,13 @@
 #### Data Engineer Challenge with SQL
 
 
-<p align="justify"><b>Apa itu Object Oriented Programming?</b></br>
-Pemrograman Berbasis Objek (Object Oriented Programming - OOP) merupakan salah satu paradigma pemrograman yang cukup populer di antara paradigma-paradigma lainnya.
+<p align="justify"><b>Produk DQLab Mart</b></br>
+Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara 50.000 and 150.000.
 </br>
-Pada paradigma OOP, struktur dari sebuah program dikemas ke dalam sebuah objek yang memiliki serangkaian properti (properties) dan fungsi (behaviours). Sebagai contoh, aku dapat merepresentasikan seorang karyawan ke dalam sebuah program melalui konsep OOP.
+Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 </br>
-Seorang karyawan dapat memiliki serangkaian properti seperti nama, usia, keahlian, dll. Kemudian, seorang karyawan juga dapat memiliki fungsi-fungsi seperti hadir ke kantor, absen, lembur, tugas dinas, dll.
+Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
 </br></br>
-<b>Konsep dalam Object Oriented Programming</b></br>
-Sebagai salah satu bahasa pemrograman yang bersifat multi-purposive, Python juga mendukung paradigma Object Oriented (OO).
-Konsep OO pada Python memiliki tujuan untuk menciptakan potongan-potongan kode yang bersifat reusable dan tidak redundan. Konsep ini dikenal dengan istilah konsep DRY - Don’t Repeat Yourself (berlawanan dengan konsep WET - Write Everything Twice).</p>
-</br>
-Dalam bahasa pemrograman Python, terdapat 3 konsep utama OO yaitu.
-<ol align="justify">
-<li>Encapsulation: Menyembunyikan sebagian detail yang dimiliki oleh sebuah objek terhadap objek-objek lainnya.</li>
-<li>Inheritance: Menurunkan serangkaian fungsi-fungsi yang dimiliki oleh sebuah objek ke sebuah objek baru tanpa mengubah makna dari objek acuan yang digunakan.</li>
-<li>Polymorphism: Konsep untuk menggunakan fungsi-fungsi dengan nama/ tujuan yang sama dengan cara yang berbeda.</li></ol>
-<p></p>
-Agar dapat membuat class Karyawan dengan baik, pertama, aku akan mempelajari cara merepresentasikan atribut/properti dalam sebuah class.  Dalam sebuah class, aku dapat mendefinisikan dua jenis atribut yaitu :
-<ol align="justify"><li>Class Attribute adalah properti/atribut yang bernilai sama untuk oleh seluruh objek dari sebuah</li>
-<li>Instance Attribute adalah properti/atribut yang nilainya berbeda-beda untuk setiap objek dari sebuah class.</li></ol>
- 
 
 ----
 #### Class dan Objek dalam Python - Part 3  
@@ -691,9 +677,3 @@ print(perusahaan.total_pengeluaran())
 <a href="https://academy.dqlab.id/main/livecode/161/305/1380">Link materi : academy.dqlab.id/main/livecode/161/305/1380</a>
 
 ----
-
-<p align="center"><b>E-Sertifikat </b></br></p>
-
-![44d4ca105e5f446a87fa0507d4876ac0-0001](https://user-images.githubusercontent.com/81500429/145325785-df971954-c306-4dd9-86c2-640c2825b5a1.jpg)
-</br>
-<p align="center"></br>Catatan Kaki &copy; Yenni Syafitri</p>
