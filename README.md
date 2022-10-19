@@ -1,33 +1,17 @@
 #### Data Engineer Challenge with SQL
 
-
-<p align="justify"><b>Produk DQLab Mart</b></br>
-Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara 50.000 and 150.000.
-</br>
-Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
-</br>
-Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
-</br></br>
-
 ----
-#### Class dan Objek dalam Python - Part 3  
+#### Produk DQLab Mart 
 
-Berkaitan dengan kedua jenis atribut yang telah aku pelajari, aku menggunakan contoh berikut untuk memperkuat pemahamanky terkait dengan konsep class attribute.
+Mengacu pada table ms_produk, tampilkan daftar produk yang memiliki harga antara 50.000 and 150.000.
+Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
+Semua table di atas sudah tersedia, Anda tinggal menulis query Anda dalam Code Editor.
 ```plantuml
-#Definisikan Class Karyawan 	
-class Karyawan:		
-  nama_perusahaan = 'ABC'
-#Inisiasi object yang dinyatakan dalam variabel aksara dan senja
-aksara = Karyawan()
-senja = Karyawan()
-#Cetak nama perusahaan melalui penggunaan keyword __class__
-#pada class attribute nama_perusahaan
-print(aksara.__class__.nama_perusahaan)
-# Ubah nama_perusahaan menjadi 'DEF'
-aksara.__class__.nama_perusahaan = 'DEF'
-#Cetak nama_perusahaan objek aksara dan senja
-print(aksara.__class__.nama_perusahaan)
-print(senja.__class__.nama_perusahaan)
+select 	no_urut, 
+	kode_produk, 
+	nama_produk, 
+	harga from ms_produk
+where harga between 50000 and 150000;
 ```
 
 <details>
