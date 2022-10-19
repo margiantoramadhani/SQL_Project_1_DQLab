@@ -80,14 +80,14 @@ Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 
 ```sql
 SELECT 
-  no_urut, 
-  kode_produk, 
-  nama_produk, 
-  harga 
+  	no_urut, 
+  	kode_produk, 
+ 	nama_produk, 
+ 	harga 
 FROM 
-  ms_produk
+ 	ms_produk
 WHERE 
-  harga BETWEEN 50000 AND 150000;
+ 	harga BETWEEN 50000 AND 150000;
 ```
 
 <details>
@@ -112,14 +112,14 @@ Nama kolom yang harus ditampilkan: no_urut, kode_produk, nama_produk, dan harga.
 
 ```sql
 SELECT 
-  no_urut, 
-  kode_produk, 
-  nama_produk, 
-  harga 
+  	no_urut, 
+  	kode_produk, 
+  	nama_produk, 
+  	harga 
 FROM 
-  ms_produk 
+  	ms_produk 
 WHERE 
-  nama_produk LIKE '%flashdisk%';
+  	nama_produk LIKE '%flashdisk%';
 ```
 
 <details>
@@ -140,13 +140,13 @@ Nama kolom yang harus ditampilkan: no_urut, kode_pelanggan, nama_pelanggan, dan 
 
 ```sql
 SELECT 
-  * 
+  	* 
 FROM 
-  ms_pelanggan 
+  	ms_pelanggan 
 WHERE 
-  nama_pelanggan like "%S.H." OR
-  nama_pelanggan like "Ir.%" OR
-  nama_pelanggan like "%Drs.";
+  	nama_pelanggan like "%S.H." OR
+  	nama_pelanggan like "Ir.%" OR
+  	nama_pelanggan like "%Drs.";
 ```
 
 <details>
@@ -170,7 +170,8 @@ SELECT
 FROM 
 	ms_pelanggan 
 ORDER BY 
-	nama_pelanggan ASC;
+	nama_pelanggan 
+ASC;
 ```
 
 <details>
@@ -189,7 +190,7 @@ ORDER BY
 | Tommy Sinaga        |
 | Unang Handoko       |
 
-<\details>
+</details>
 
 ----
 
@@ -197,3 +198,116 @@ ORDER BY
 Tampilkan nama-nama pelanggan dan urutkan hasilnya berdasarkan kolom nama_pelanggan dari yang terkecil ke yang terbesar (A ke Z), 
 namun gelar tidak boleh menjadi bagian dari urutan. Contoh: Ir. Agus Nugraha harus berada di atas Heidi Goh.</br>
 Nama kolom yang harus ditampilkan: nama_pelanggan.
+
+```sql
+SELECT 
+	nama_pelanggan 
+FROM 
+	ms_pelanggan 
+ORDER BY
+	CASE WHEN LEFT(nama_pelanggan,3) = 'ir.'
+	THEN SUBSTRING(nama_pelanggan,5,300)
+	ELSE nama_pelanggan
+	END
+ASC;
+```
+
+<details>
+<summary markdown="span">Output :</summary>
+
+| nama_pelanggan      |
+|---------------------|
+| Agus Cahyono        |
+| Djoko Wardoyo, Drs. |
+| Eva Novianti, S.H.  |
+| Heidi Goh           |
+| Irwan Setianto      |
+| Ir. Ita Nugraha     |
+| Jokolono Sukarman   |
+| Maria Sirait        |
+| Tommy Sinaga        |
+| Unang Handoko       |
+
+</details>
+
+----
+
+#### Nama Pelanggan yang Paling Panjang
+Tampilkan nama pelanggan yang memiliki nama paling panjang. Jika ada lebih dari 1 orang yang memiliki panjang nama yang sama, tampilkan semuanya.</br>
+Nama kolom yang harus ditampilkan: nama_pelanggan.
+
+```sql
+SELECT 
+	nama_pelanggan 
+FROM 
+	ms_pelanggan 
+WHERE 
+	LENGTH(nama_pelanggan) IN (SELECT MAX(LENGTH (nama_pelanggan))
+	FROM ms_pelanggan);
+```
+
+<details>
+<summary markdown="span">Output :</summary>
+
+| nama_pelanggan      |
+|---------------------|
+| Djoko Wardoyo, Drs. |
+
+</details>
+
+----
+
+#### Nama Pelanggan yang Paling Panjang dengan Gelar
+Tampilkan nama orang yang memiliki nama paling panjang (pada row atas), dan nama orang paling pendek (pada row setelahnya). 
+Gelar menjadi bagian dari nama. Jika ada lebih dari satu nama yang paling panjang atau paling pendek, harus ditampilkan semuanya.</br>
+Nama kolom yang harus ditampilkan: nama_pelanggan.
+
+```sql
+SELECT 
+	nama_pelanggan 
+FROM
+	ms_pelanggan
+WHERE 
+	LENGTH(nama_pelanggan) IN (SELECT MAX(LENGTH(nama_pelanggan))FROM ms_pelanggan)
+	OR
+	LENGTH(nama_pelanggan) IN (SELECT MIN(LENGTH(nama_pelanggan))FROM ms_pelanggan)
+ORDER BY 
+	LENGTH(nama_pelanggan)
+DESC;
+```
+
+<details>
+<summary markdown="span">Output :</summary>
+
+| nama_pelanggan      |
+|---------------------|
+| Djoko Wardoyo, Drs. |
+| Heidi Goh           |
+
+</details>
+
+----
+
+####
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
