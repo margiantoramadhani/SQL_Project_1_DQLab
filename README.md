@@ -6,6 +6,9 @@
 
 1. ms_pelanggan
 
+<details>
+<summary markdown="span">ms_pelanggan :</summary>
+	
 | no_urut | kode_cabang | kode_pelanggan | nama_pelanggan      | alamat                                      |
 |---------|-------------|----------------|---------------------|---------------------------------------------|
 |       1 | jkt-001     | cust0001       | Eva Novianti, S.H.  | Vila Sempilan, No. 67                       |
@@ -19,8 +22,13 @@
 |       9 | jkt-002     | cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6     |
 |      10 | bdg-001     | cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1            |
 
+</details>
+
 2. ms_produk
 
+<details>
+<summary markdown="span">ms_produk :</summary>
+	
 | no_urut | kode_produk | nama_produk                        | harga  |
 |---------|-------------|------------------------------------|--------|
 |       1 | prod-01     | Kotak Pensil DQLab                 |  60500 |
@@ -34,8 +42,13 @@
 |       9 | prod-09     | Buku Planner Agenda DQLab          |  92000 |
 |      10 | prod-10     | Sticky Notes DQLab 500 sheets      |  55000 |
 
+</details>
+
 3. tr_penjualan
 
+<details>
+<summary markdown="span">tr_penjualan :</summary>
+	
 | kode_transaksi | tanggal_transaksi   | kode_cabang | kode_pelanggan | no_urut | kode_prod | harga  |
 |----------------|---------------------|-------------|----------------|---------|-----------|--------|
 | tr-0001        | 2019-06-07 10:09:46 | jkt-001     | cust0007       |       1 | prod-01   |  62000 |
@@ -54,8 +67,13 @@
 | tr-0006        | 2019-06-09 22:09:46 | jkt-001     | cust0008       |       1 | prod-05   | 250000 |
 | tr-0006        | 2019-06-09 22:09:46 | jkt-001     | cust0008       |       2 | prod-08   |  15800 |
 
+</details>
+
 4. tr_penjualan_detail
 
+<details>
+<summary markdown="span">tr_penjualan_detail :</summary>
+	
 | kode_transaksi | kode_produk | qty  | harga_satuan |
 |----------------|-------------|------|--------------|
 | tr-0001        | prod-04     |    3 |        40000 |
@@ -71,6 +89,8 @@
 | tr-0010        | prod-04     |    3 |        48000 |
 | tr-0010        | prod-08     |    1 |        15800 |
 | tr-0010        | prod-04     |    1 |        40000 |
+
+</details>
 
 ----
 
@@ -374,11 +394,6 @@ WHERE
 <details>
 <summary markdown="span">Output :</summary>
 
-| kode_pelanggan | nama_pelanggan | total_harga |
-|----------------|----------------|-------------|
-| cust0007       | Agus Cahyono   |      700000 |
-
-</details>
 | kode_pelanggan | nama_pelanggan      | alamat                                  |
 |----------------|---------------------|-----------------------------------------|
 | cust0002       | Heidi Goh           | Ruko Sawit Permai 72 No. 1              |
@@ -387,13 +402,49 @@ WHERE
 | cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
 | cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
 
+</details>
+
 ----
 
 #### Transaksi Belanja dengan Daftar Belanja lebih dari 1
+Tampilkan transaksi-transaksi yang memiliki jumlah item produk lebih dari 1 jenis produk. Dengan lain kalimat, 
+tampilkan transaksi-transaksi yang memiliki jumlah baris data pada table tr_penjualan_detail lebih dari satu.</br>
+Nama kolom yang harus ditampilkan:  kode_transaksi, kode_pelanggan, nama_pelanggan, tanggal_transaksi, jumlah_detail
 
+```sql
+SELECT
+	a.kode_transaksi,
+	a.kode_pelanggan,
+	b.nama_pelanggan,
+	a.tanggal_transaksi,
+	count(c.kode_produk) as jumlah_detail
+FROM
+	tr_penjualan a
+JOIN 
+	ms_pelanggan b ON a.kode_pelanggan=b.kode_pelanggan 
+JOIN 
+	tr_penjualan_detail c ON a.kode_transaksi=c.kode_transaksi
+GROUP BY 
+	a.kode_transaksi,
+	a.kode_pelanggan,
+	b.nama_pelanggan,
+	a.tanggal_transaksi
+HAVING 
+	COUNT(c.kode_produk)>1
+```
 
+<details>
+<summary markdown="span">Output :</summary>
 
+| kode_transaksi | kode_pelanggan | nama_pelanggan     | tanggal_transaksi   | jumlah_detail |
+|----------------|----------------|--------------------|---------------------|---------------|
+| tr-0001        | cust0007       | Agus Cahyono       | 2019-06-07 10:09:46 |             8 |
+| tr-0002        | cust0001       | Eva Novianti, S.H. | 2019-06-07 13:05:12 |             3 |
+| tr-0004        | cust0004       | Jokolono Sukarman  | 2019-06-08 22:09:46 |             2 |
+| tr-0005        | cust0003       | Unang Handoko      | 2019-06-09 22:09:46 |             3 |
+| tr-0006        | cust0008       | Maria Sirait       | 2019-06-09 22:09:46 |             2 |
 
+</details>
 
 
 
