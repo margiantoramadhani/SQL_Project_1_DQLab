@@ -4,8 +4,6 @@
 
 #### Dataset project
 
-1. ms_pelanggan
-
 <details>
 <summary markdown="span">ms_pelanggan :</summary>
 	
@@ -24,8 +22,6 @@
 
 </details>
 
-2. ms_produk
-
 <details>
 <summary markdown="span">ms_produk :</summary>
 	
@@ -43,8 +39,6 @@
 |      10 | prod-10     | Sticky Notes DQLab 500 sheets      |  55000 |
 
 </details>
-
-3. tr_penjualan
 
 <details>
 <summary markdown="span">tr_penjualan :</summary>
@@ -68,8 +62,6 @@
 | tr-0006        | 2019-06-09 22:09:46 | jkt-001     | cust0008       |       2 | prod-08   |  15800 |
 
 </details>
-
-4. tr_penjualan_detail
 
 <details>
 <summary markdown="span">tr_penjualan_detail :</summary>
