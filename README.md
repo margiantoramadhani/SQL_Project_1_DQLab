@@ -131,7 +131,7 @@ WHERE
 |       2 | prod-02     | Flashdisk DQLab 64 GB | 55000 |
 |       4 | prod-04     | Flashdisk DQLab 32 GB | 40000 |
   
-<details>
+</details>
 
 ----
 
@@ -158,7 +158,7 @@ WHERE
 |       1 | jkt-001     | cust0001       | Eva Novianti, S.H.  | Vila Sempilan, No. 67                   |
 |       9 | jkt-002     | cust0009       | Ir. Ita Nugraha     | Perumahan Sagitarius, Gang Kelapa No. 6 |
 |      10 | bdg-001     | cust0010       | Djoko Wardoyo, Drs. | Bukit Pintar Data, Blok A1 No. 1        |
-<details>
+</details>
   
 ----
 
