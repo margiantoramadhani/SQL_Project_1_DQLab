@@ -288,11 +288,41 @@ DESC;
 
 ----
 
+#### Kuantitas Produk yang Banyak Terjual
+Tampilkan produk yang paling banyak terjual dari segi kuantitas. Jika ada lebih dari 1 produk dengan nilai yang sama, tampilkan semua produk tersebut.</br>
+Nama kolom yang harus ditampilkan: kode_produk, nama_produk,total_qty.
+
+```sql
+SELECT
+	ms_produk.kode_produk,
+  ms_produk.nama_produk,
+	SUM(tr_penjualan_detail.qty) AS total_qty
+FROM
+	ms_produk
+JOIN
+	tr_penjualan_detail
+ON
+	ms_produk.kode_produk=tr_penjualan_detail.kode_produk
+GROUP BY
+	ms_produk.kode_produk,
+	ms_produk.nama_produk
+HAVING
+	total_qty=7;
+```
+
+<details>
+<summary markdown="span">Output :</summary>
+
+| kode_produk | nama_produk           | total_qty |
+|-------------|-----------------------|-----------|
+| prod-04     | Flashdisk DQLab 32 GB |         7 |
+| prod-08     | Gantungan Kunci DQLab |         7 |
+
+</details>
+
+----
+
 ####
-
-
-
-
 
 
 
